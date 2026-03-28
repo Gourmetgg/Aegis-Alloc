@@ -47,7 +47,11 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 if(BUILD_TESTING)
-  add_executable(aegis_alloc_tests tests/sanity_test.cpp)
+  add_executable(
+    aegis_alloc_tests
+    tests/sanity_test.cpp
+    tests/linear_allocator_stress_test.cpp
+  )
   target_link_libraries(aegis_alloc_tests PRIVATE aegis_alloc GTest::gtest_main)
   enable_strict_warnings(aegis_alloc_tests)
 
